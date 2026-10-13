@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
 import { Link } from "@tanstack/react-router";
 import { Heart, Menu, Search, ShoppingBag, Sparkles, User } from "lucide-react";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
@@ -10,7 +10,7 @@ import { useWishlist } from "@/store/wishlist";
 import { DeliverySelector } from "./DeliverySelector";
 import { Logo } from "./Logo";
 
-function IconLink({ to, label, count, children }: { to: "/cart" | "/wishlist" | "/account"; label: string; count?: number; children: React.ReactNode }) {
+function IconLink({ to, label, count, children }: { to: "/cart" | "/wishlist" | "/account"; label: string; count?: number; children: ReactNode }) {
   return (
     <Link to={to} aria-label={count ? `${label}, ${count} items` : label} className="relative inline-flex size-10 items-center justify-center rounded-full hover:bg-muted">
       {children}
