@@ -10,8 +10,8 @@ export interface CartLine {
   key: string;
   productId: string;
   slug: string;
-  variantId?: string;
-  variantLabel?: string;
+  variantId?: string | undefined;
+  variantLabel?: string | undefined;
   name: string;
   brand: string;
   image: string;

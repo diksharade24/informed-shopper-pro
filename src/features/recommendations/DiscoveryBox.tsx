@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button";
 import { ProductGrid } from "@/components/products/ProductGrid";
 import { EmptyState, ErrorState, ProductGridSkeleton } from "@/components/feedback/States";
 
-export function DiscoveryBox({ placeholder = "I need comfortable headphones under ₹2,000 for online classes." }: { placeholder?: string }) {
+export function DiscoveryBox({ placeholder = "I need comfortable headphones under ₹2,000 for online classes." }: { placeholder?: string  | undefined}) {
   const [text, setText] = useState("");
   const m = useMutation({ mutationFn: (prompt: string) => catalogService.discover(prompt) });
 

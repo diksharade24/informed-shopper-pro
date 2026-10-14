@@ -2,7 +2,7 @@ import { Star } from "lucide-react";
 import { discountPercent, formatPrice, stockLabel } from "@/lib/format";
 import { cn } from "@/lib/utils";
 
-export function PriceDisplay({ price, originalPrice, size = "md" }: { price: number; originalPrice?: number; size?: "md" | "lg" }) {
+export function PriceDisplay({ price, originalPrice, size = "md" }: { price: number; originalPrice?: number | undefined; size?: "md" | "lg" }) {
   const off = discountPercent(price, originalPrice);
   return (
     <div className="flex flex-wrap items-baseline gap-x-2 gap-y-1">

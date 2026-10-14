@@ -2,16 +2,16 @@ import { isCategorySlug } from "@/config/categories";
 import type { CategorySlug, ProductQuery, SortOption } from "@/types/catalog";
 
 export interface CatalogSearch {
-  q?: string;
-  category?: CategorySlug;
+  q?: string | undefined;
+  category?: CategorySlug | undefined;
   /** Comma-separated brand names. */
-  brands?: string;
-  minPrice?: number;
-  maxPrice?: number;
-  rating?: number;
-  inStock?: boolean;
-  sort?: SortOption;
-  page?: number;
+  brands?: string | undefined;
+  minPrice?: number | undefined;
+  maxPrice?: number | undefined;
+  rating?: number | undefined;
+  inStock?: boolean | undefined;
+  sort?: SortOption | undefined;
+  page?: number | undefined;
 }
 
 const SORTS: SortOption[] = ["relevance", "price-asc", "price-desc", "rating", "newest"];

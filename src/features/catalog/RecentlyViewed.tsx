@@ -3,7 +3,7 @@ import { productsByIdsQuery } from "@/services/catalog";
 import { usePrefs } from "@/store/preferences";
 import { ProductRail } from "@/components/products/ProductGrid";
 
-export function RecentlyViewed({ excludeId }: { excludeId?: string }) {
+export function RecentlyViewed({ excludeId }: { excludeId?: string  | undefined}) {
   const ids = usePrefs((s) => s.recentlyViewed).filter((id) => id !== excludeId);
   const { data } = useQuery(productsByIdsQuery(ids));
   if (!ids.length || !data?.length) return null;

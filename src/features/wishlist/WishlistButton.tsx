@@ -3,7 +3,7 @@ import { toast } from "sonner";
 import { useWishlist } from "@/store/wishlist";
 import { cn } from "@/lib/utils";
 
-export function WishlistButton({ productId, name, className }: { productId: string; name: string; className?: string }) {
+export function WishlistButton({ productId, name, className }: { productId: string; name: string; className?: string  | undefined}) {
   const saved = useWishlist((s) => s.ids.includes(productId));
   const toggle = useWishlist((s) => s.toggle);
   return (
