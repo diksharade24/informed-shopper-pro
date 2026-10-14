@@ -102,7 +102,7 @@ function CartPage() {
             <div className="flex justify-between text-muted-foreground"><dt>Shipping & taxes</dt><dd>At checkout</dd></div>
           </dl>
           <div className="mt-4 flex justify-between border-t pt-4 font-display text-lg font-bold"><span>Estimated total</span><span>{formatPrice(subtotal)}</span></div>
-          <Button className="mt-6 w-full" size="lg" disabled onClick={() => undefined} aria-describedby="checkout-note">Checkout</Button>
+          <Button className="mt-6 w-full" size="lg" disabled aria-describedby="checkout-note">Checkout</Button>
           <p id="checkout-note" className="mt-2 text-xs text-muted-foreground">
             {blocked ? "Resolve the flagged items first. " : ""}Checkout opens once secure order & payment services are connected — no orders are placed in sample mode.
           </p>
