@@ -46,8 +46,7 @@ export async function apiRequest<T>(
   try {
     const res = await fetch(`${env.apiBaseUrl}${path}${toSearch(opts.query)}`, {
       method: opts.method ?? "GET",
-      headers: opts.body ? { "Content-Type": "application/json" } : undefined,
-      body: opts.body ? JSON.stringify(opts.body) : undefined,
+      ...(opts.body !== undefined ? { headers: { "Content-Type": "application/json" }, body: JSON.stringify(opts.body) } : {}),
       credentials: "include", // auth via httpOnly cookies set by the backend
       signal: controller.signal,
     });

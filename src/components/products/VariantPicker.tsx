@@ -1,7 +1,7 @@
 import type { Product } from "@/types/catalog";
 import { cn } from "@/lib/utils";
 
-export function VariantPicker({ product, value, onChange }: { product: Product; value?: string; onChange: (id: string) => void }) {
+export function VariantPicker({ product, value, onChange }: { product: Product; value?: string | undefined; onChange: (id: string) => void }) {
   if (!product.variants?.length) return null;
   const groupId = `variant-${product.id}`;
   return (

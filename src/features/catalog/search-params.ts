@@ -23,18 +23,18 @@ const num = (v: unknown) => {
 
 export function validateCatalogSearch(raw: Record<string, unknown>): CatalogSearch {
   const out: CatalogSearch = {};
-  if (typeof raw.q === "string" && raw.q.trim()) out.q = raw.q.trim().slice(0, 100);
-  if (isCategorySlug(raw.category)) out.category = raw.category;
-  if (typeof raw.brands === "string" && raw.brands) out.brands = raw.brands;
-  const minPrice = num(raw.minPrice);
-  const maxPrice = num(raw.maxPrice);
+  if (typeof raw["q"] === "string" && raw["q"].trim()) out.q = raw["q"].trim().slice(0, 100);
+  if (isCategorySlug(raw["category"])) out.category = raw["category"];
+  if (typeof raw["brands"] === "string" && raw["brands"]) out.brands = raw["brands"];
+  const minPrice = num(raw["minPrice"]);
+  const maxPrice = num(raw["maxPrice"]);
   if (minPrice !== undefined) out.minPrice = minPrice;
   if (maxPrice !== undefined) out.maxPrice = maxPrice;
-  const rating = num(raw.rating);
+  const rating = num(raw["rating"]);
   if (rating && rating <= 5) out.rating = rating;
-  if (raw.inStock === true || raw.inStock === "true") out.inStock = true;
-  if (typeof raw.sort === "string" && (SORTS as string[]).includes(raw.sort) && raw.sort !== "relevance") out.sort = raw.sort as SortOption;
-  const page = num(raw.page);
+  if (raw["inStock"] === true || raw["inStock"] === "true") out.inStock = true;
+  if (typeof raw["sort"] === "string" && (SORTS as string[]).includes(raw["sort"]) && raw["sort"] !== "relevance") out.sort = raw["sort"] as SortOption;
+  const page = num(raw["page"]);
   if (page && page > 1) out.page = Math.floor(page);
   return out;
 }
