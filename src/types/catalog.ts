@@ -19,7 +19,7 @@ export interface ProductVariant {
   id: string;
   label: string;
   /** Overrides product price when set. */
-  price?: number;
+  price?: number | undefined;
   stock: number;
 }
 
@@ -36,30 +36,30 @@ export interface Product {
   /** Current price in INR (paise not used in mock). */
   price: number;
   /** Only set when strictly greater than price. */
-  originalPrice?: number;
+  originalPrice?: number | undefined;
   rating: number;
   reviewCount: number;
   stock: number;
   createdAt: string;
-  variantGroup?: string;
-  variants?: ProductVariant[];
-  returnPolicy?: string;
+  variantGroup?: string | undefined;
+  variants?: ProductVariant[] | undefined;
+  returnPolicy?: string | undefined;
   tags: string[];
 }
 
 export type SortOption = "relevance" | "price-asc" | "price-desc" | "rating" | "newest";
 
 export interface ProductQuery {
-  q?: string;
-  category?: CategorySlug;
-  brands?: string[];
-  minPrice?: number;
-  maxPrice?: number;
-  minRating?: number;
-  inStock?: boolean;
-  sort?: SortOption;
-  page?: number;
-  pageSize?: number;
+  q?: string | undefined;
+  category?: CategorySlug | undefined;
+  brands?: string[] | undefined;
+  minPrice?: number | undefined;
+  maxPrice?: number | undefined;
+  minRating?: number | undefined;
+  inStock?: boolean | undefined;
+  sort?: SortOption | undefined;
+  page?: number | undefined;
+  pageSize?: number | undefined;
 }
 
 export interface FacetCount {
@@ -91,13 +91,13 @@ export interface Campaign {
   description: string;
   terms: string;
   tone: "lavender" | "peach" | "butter" | "mint";
-  category?: CategorySlug;
+  category?: CategorySlug | undefined;
   /** ISO date; only shown when provided by the backend. */
-  endsAt?: string;
+  endsAt?: string | undefined;
 }
 
 export interface DiscoveryResult {
-  interpreted: { budgetMax?: number; category?: CategorySlug; keywords: string[] };
+  interpreted: { budgetMax?: number | undefined; category?: CategorySlug | undefined; keywords: string[] };
   products: Product[];
   source: "sample-rules" | "ai-service";
 }

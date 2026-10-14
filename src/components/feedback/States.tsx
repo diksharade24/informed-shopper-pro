@@ -3,7 +3,7 @@ import { AlertCircle, PackageSearch } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 
-export function EmptyState({ title, body, action, icon }: { title: string; body?: string; action?: ReactNode; icon?: ReactNode }) {
+export function EmptyState({ title, body, action, icon }: { title: string; body?: string | undefined; action?: ReactNode | undefined; icon?: ReactNode  | undefined}) {
   return (
     <div className="flex flex-col items-center rounded-3xl border border-dashed bg-card px-6 py-14 text-center">
       <div className="mb-4 flex size-16 items-center justify-center rounded-full bg-lavender">
@@ -31,7 +31,7 @@ export function ErrorState({ message, onRetry }: { message: string; onRetry?: ()
   );
 }
 
-export function ProductGridSkeleton({ count = 8 }: { count?: number }) {
+export function ProductGridSkeleton({ count = 8 }: { count?: number  | undefined}) {
   return (
     <div className="grid grid-cols-2 gap-3 sm:gap-5 md:grid-cols-3 lg:grid-cols-4" aria-busy="true" aria-label="Loading products">
       {Array.from({ length: count }, (_, i) => (

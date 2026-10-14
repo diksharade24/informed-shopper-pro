@@ -10,8 +10,8 @@ export interface CartLine {
   key: string;
   productId: string;
   slug: string;
-  variantId?: string;
-  variantLabel?: string;
+  variantId?: string | undefined;
+  variantLabel?: string | undefined;
   name: string;
   brand: string;
   image: string;
@@ -26,7 +26,7 @@ export const lineKey = (productId: string, variantId?: string) => `${productId}:
 
 interface CartState {
   lines: CartLine[];
-  add: (p: Product, opts?: { variantId?: string; qty?: number }) => { ok: boolean; reason?: string };
+  add: (p: Product, opts?: { variantId?: string | undefined; qty?: number | undefined }) => { ok: boolean; reason?: string };
   setQty: (key: string, qty: number) => void;
   remove: (key: string) => void;
   clear: () => void;

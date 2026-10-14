@@ -3,12 +3,12 @@ import { ImageOff } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface Props {
-  src?: string;
+  src?: string | undefined;
   alt: string;
-  className?: string;
-  eager?: boolean;
-  width?: number;
-  height?: number;
+  className?: string | undefined;
+  eager?: boolean | undefined;
+  width?: number | undefined;
+  height?: number | undefined;
 }
 
 /** Image with fixed aspect handling and a friendly fallback when the source fails. */

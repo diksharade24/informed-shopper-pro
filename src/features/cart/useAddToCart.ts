@@ -4,7 +4,7 @@ import type { Product } from "@/types/catalog";
 
 export function useAddToCart() {
   const add = useCart((s) => s.add);
-  return (p: Product, opts?: { variantId?: string; qty?: number }) => {
+  return (p: Product, opts?: { variantId?: string | undefined; qty?: number | undefined }) => {
     const res = add(p, opts);
     if (res.ok) toast.success("Added to cart", { description: p.name });
     else toast.error(res.reason ?? "Couldn't add this item.");
