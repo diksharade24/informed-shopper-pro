@@ -116,7 +116,7 @@ export function createMockCatalogService(products: Product[] = SAMPLE_PRODUCTS, 
       await delay(600, signal);
       const text = prompt.toLowerCase();
       const budgetMatch = text.match(/(?:under|below|less than|within|upto|up to)\s*(?:₹|rs\.?|inr)?\s*([\d,]+)/);
-      const budgetMax = budgetMatch ? Number(budgetMatch[1].replace(/,/g, "")) : undefined;
+      const budgetMax = budgetMatch ? Number((budgetMatch[1] ?? "").replace(/,/g, "")) : undefined;
       const category = KEYWORD_CATEGORY.find(([re]) => re.test(text))?.[1];
       const keywords = products
         .flatMap((p) => p.tags)
