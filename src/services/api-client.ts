@@ -37,7 +37,7 @@ function toSearch(query?: Query): string {
 
 export async function apiRequest<T>(
   path: string,
-  opts: { method?: string; query?: Query; body?: unknown; signal?: AbortSignal } = {},
+  opts: { method?: string | undefined; query?: Query | undefined; body?: unknown; signal?: AbortSignal | undefined } = {},
 ): Promise<T> {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort("timeout"), env.requestTimeoutMs);
