@@ -8,3 +8,10 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+## Architecture rules
+- Components depend only on the `CatalogService` interface (`src/services/catalog/types.ts`); mock vs HTTP is chosen in `src/services/catalog/index.ts` from `VITE_API_BASE_URL`/`VITE_USE_MOCKS` — so switching to the FastAPI backend needs no UI changes.
+- Server state lives in TanStack Query; Zustand stores (`src/store`) hold only client state (guest cart, wishlist IDs, prefs) and use `skipHydration` + rehydrate in `__root` to avoid SSR mismatches.
+- Catalog filters/sort/page live in URL search params (`features/catalog/search-params.ts`) so refresh and back/forward work.
+- Sample fixtures stay in `src/mocks` and are never imported by HTTP services; mock mode is always labeled in the UI.
+- Routing is TanStack Router (fixed by the platform), not React Router.

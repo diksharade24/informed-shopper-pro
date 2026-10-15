@@ -56,7 +56,7 @@ export function Header() {
 
         <div className="mx-2 hidden flex-1 md:block"><SearchBox /></div>
 
-        <div className="ml-auto flex items-center gap-0.5 sm:gap-1 md:ml-0">
+        <div className="ml-auto flex items-center sm:gap-1 md:ml-0">
           <button type="button" onClick={() => setSearchOpen(true)} aria-label="Search" className="inline-flex size-10 items-center justify-center rounded-full hover:bg-muted md:hidden">
             <Search className="size-5" aria-hidden />
           </button>

@@ -3,7 +3,7 @@ import { X } from "lucide-react";
 import { usePrefs } from "@/store/preferences";
 
 /** Configurable messages — replace with backend-provided announcements later. */
-export const ANNOUNCEMENTS = ["New here? Explore the catalog and save favourites to your wishlist ✨", "Try the shopping finder — describe what you need in your own words."];
+export const ANNOUNCEMENTS = ["New here? Explore the catalog and save favourites to your wishlist.", "Try the shopping finder — describe what you need in your own words."];
 
 export function AnnouncementBar() {
   const dismissed = usePrefs((s) => s.announcementDismissed);

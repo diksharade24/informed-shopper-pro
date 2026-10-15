@@ -12,7 +12,7 @@ describe("catalog query", () => {
   it("filters by category and sorts by price ascending", () => {
     const r = queryProducts(SAMPLE_PRODUCTS, { category: "electronics", sort: "price-asc", pageSize: 50 });
     expect(r.items.every((p) => p.category === "electronics")).toBe(true);
-    expect(r.items[0].price).toBe(349);
+    expect(r.items[0]?.price).toBe(349);
   });
   it("paginates 12 per page", () => {
     const r = queryProducts(SAMPLE_PRODUCTS, { page: 2, pageSize: 12 });
@@ -46,7 +46,7 @@ describe("cart", () => {
   });
   it("uses variant price override", () => {
     useCart.getState().add(byId("p3"), { variantId: "p3-plum" });
-    expect(useCart.getState().lines[0].unitPrice).toBe(3699);
+    expect(useCart.getState().lines[0]?.unitPrice).toBe(3699);
   });
 });
 
