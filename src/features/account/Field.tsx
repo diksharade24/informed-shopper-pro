@@ -2,7 +2,7 @@ import { useId, type InputHTMLAttributes } from "react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
-export function Field({ label, error, hint, ...props }: { label: string; error?: string | undefined; hint?: string } & InputHTMLAttributes<HTMLInputElement>) {
+export function Field({ label, error, hint, ...props }: { label: string; error?: string | undefined; hint?: string | undefined } & InputHTMLAttributes<HTMLInputElement>) {
   const id = useId();
   const msgId = `${id}-msg`;
   return (

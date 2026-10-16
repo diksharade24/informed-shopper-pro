@@ -1,4 +1,4 @@
-export type Errors<K extends string> = Partial<Record<K, string>>;
+export type Errors<K extends string> = { [P in K]?: string | undefined };
 
 const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 

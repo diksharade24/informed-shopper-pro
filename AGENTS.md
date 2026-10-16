@@ -15,3 +15,4 @@
 - Catalog filters/sort/page live in URL search params (`features/catalog/search-params.ts`) so refresh and back/forward work.
 - Sample fixtures stay in `src/mocks` and are never imported by HTTP services; mock mode is always labeled in the UI.
 - Routing is TanStack Router (fixed by the platform), not React Router.
+- Account features depend only on the `AccountService` interface (`src/services/account/types.ts`); mock (device-only localStorage, clearly labeled demo) vs FastAPI HTTP is chosen in `src/services/account/index.ts` by the same env switch as the catalog.
